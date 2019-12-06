@@ -3,8 +3,8 @@
 	<name>Deblog (Шаблон)</name>
 	<description></description>
 	<icon></icon>
-	<version>1.0</version>
-	<dleversion>13.0</dleversion>
+	<version>1.1</version>
+	<dleversion>13.1</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl></upgradeurl>
 	<filedelete>0</filedelete>
