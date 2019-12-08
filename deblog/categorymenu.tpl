@@ -1,8 +1,24 @@
-[root]<div class="list-group list-group-flush">[/root]
-[item]
-	<a class="p-2 pl-4 pr-4 list-group-item list-group-item-action d-flex justify-content-between align-items-center [active]active[/active]" href="{url}">
-		{name} <span style="font-size: 90%;" class="text-muted">{news-count}</span>
-	</a>
-	{sub-item}
-[/item]
-[root]</div>[/root]
+<div class="card w-100">
+   <div class="card-body p-2">
+      <div class="nice-nav">
+         [root]
+         <ul>
+            [/root]
+            [item]
+            <li class="child-menu" id="cat{id}">
+               <a href="{url}" [active]class="active1"[/active]><img src="{icon}" class="catimg"><span> {name}</span> [isparent]<span class="fa fa-angle-down toggle-right"></span>[/isparent]</a>
+               [sub-prefix]
+               <ul class="child-menu-ul">
+                  [/sub-prefix]
+                  {sub-item}
+                  [sub-suffix]
+               </ul>
+               [/sub-suffix]
+            </li>
+            [/item]
+            [root]
+         </ul>
+         [/root]
+      </div>
+   </div>
+</div>

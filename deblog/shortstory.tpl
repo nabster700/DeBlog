@@ -34,7 +34,7 @@
               </div>
               [/ifxfvalue]
 				<div role="status" style="position: absolute;margin: 125px 0px 0px 10px;">
-                	<span class="badge badge-light"><p class="mb-0">Категория: {category}</p></span>
+                	<span class="badge badge-light"><p class="mb-0">{category}</p></span>
               	</div>
         [xfgiven_poster_one]<img src="[xfvalue_image_url_poster_one]" class="xfieldimage poster_one" alt="{title}">[/xfgiven_poster_one]
         [xfnotgiven_poster_one]<img src="/templates/nabster/dleimages/no_image.jpg" class="xfieldimage poster_one" alt="{title}">[/xfnotgiven_poster_one]
@@ -78,7 +78,6 @@
               <span class="iconify mb-1 mr-1 text-warning" data-icon="simple-line-icons:info" data-inline="false"></span>Новость отредактировал: <b>{editor}</b> - {edit-date}
               [edit-reason]
                 <div class="collapse px-4 py-2" id="editnews">
-                <br>
 				Причина: <i>{edit-reason}</i>
               </div>
               [/edit-reason]  
@@ -91,10 +90,10 @@
   </div>
   <div class="card-footer">
     <ul class="list-inline m-0 text-muted f90 isize">
-        <li class="list-inline-item auth d-none d-sm-inline" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
-        <li class="list-inline-item"><i class="icon-clock" aria-hidden="true"></i> {date=d.m.Y}</li>
+		<li class="list-inline-item auth" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
         <li class="list-inline-item"><i class="icon-book-open" aria-hidden="true"></i> {views}</li>
         <li class="list-inline-item"><i class="icon-bubbles" aria-hidden="true"></i> {comments-num}</li>
+        <li class="list-inline-item d-none d-sm-inline"><i class="icon-clock" aria-hidden="true"></i> {date=d.m.Y}</li>
           <li class="list-inline-item float-right">
                 [rating] [rating-type-2]
                 <a href="#" onclick="doRate('plus', '{news-id}'); return false;">

@@ -22,7 +22,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <link rel="stylesheet" href="{THEME}/css/magnific-popup.css">
 </head>
-
+<script>
+  $(document).ready(function() {
+    $submenu = $('.child-menu-ul');
+    $('.child-menu .toggle-right').on('click', function(e) {
+      e.preventDefault();
+      $this = $(this);
+      $parent = $this.parent().next();
+      // $parent.addClass('active');
+      $tar = $('.child-menu-ul');
+      if (!$parent.hasClass('active')) {
+        $tar.removeClass('active').slideUp('fast');
+        $parent.addClass('active').slideDown('fast');
+      } else {
+        $parent.removeClass('active').slideUp('fast');
+      }
+    });
+  });
+</script>
 <body>
     {include file="modules/menu.tpl"}
     <div class="container ">

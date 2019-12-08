@@ -1,5 +1,5 @@
 <div class="media comment-box">
-    <div class="media-left">
+    <div class="media-left d-none d-sm-inline">
         <a onclick="ShowProfile('{login}', '{login}'); return false;" href="{login}">
             <img class="img-responsive user-photo" style="width: 50px;height: 50px;object-fit: cover;border-radius: 4px;" src="{foto}">
         </a>
@@ -37,9 +37,9 @@
             </div>
             [/rating-type-2] [/rating]
 
-            <ul class="list-inline mb-0">
-                <li class="list-inline-item auth" [online] id="online" [/online]>{author}</li>
-                <li class="list-inline-item f90 text-muted">{date}</li>
+        <ul class="list-inline m-0">
+            <li class="list-inline-item isize auth" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
+                <li class="list-inline-item isize f90 text-muted d-none d-sm-inline"><i class="icon-clock" aria-hidden="true"></i> {date}</li>
                 <li class="list-inline-item"> [childrencomments] <span class="badge badge-pill badge-light"><i class="fa fa-reply-all" aria-hidden="true"></i> Ответ</span> [/childrencomments]</li>
 
             </ul>

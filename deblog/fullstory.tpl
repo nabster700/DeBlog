@@ -72,8 +72,37 @@
 
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 order-lg-last order-md-first order-sm-first w-100">
+              [ifxfvalue panel="Предупреждение"]
+              <div role="status" style="position: absolute;margin: 20px 0px 0px 20px;">
+                <span class="badge badge-warning"><h2 class="mb-0 title">[xfvalue_panel]</h2></span>
+              </div>
+                [/ifxfvalue]
+
+              [ifxfvalue panel="Важное"]
+              <div role="status" style="position: absolute;margin: 20px 0px 0px 20px;">
+                <span class="badge badge-primary"><h2 class="mb-0 title">[xfvalue_panel]</h2></span>
+              </div>
+                [/ifxfvalue]
+
+              [ifxfvalue panel="Выполнено"]
+              <div role="status" style="position: absolute;margin: 20px 0px 0px 20px;">
+                <span class="badge badge-success"><h2 class="mb-0 title">[xfvalue_panel]</h2></span>
+              </div>
+                [/ifxfvalue]
+
+              [ifxfvalue panel="Внимание"]
+              <div role="status" style="position: absolute;margin: 20px 0px 0px 20px;">
+                <span class="badge badge-danger"><h2 class="mb-0 title">[xfvalue_panel]</h2></span>
+              </div>
+                [/ifxfvalue]
+
+              [ifxfvalue panel="Информация"]
+              <div role="status" style="position: absolute;margin: 20px 0px 0px 20px;">
+                <span class="badge badge-info"><h2 class="mb-0 title">[xfvalue_panel]</h2></span>
+              </div>
+              [/ifxfvalue]
 				<div role="status" style="position: absolute;margin: 110px 0px 0px 20px;">
-                	<span class="badge badge-light"><h2 class="mb-0 title">Категория: {category}</h2></span>
+                	<span class="badge badge-light"><h2 class="mb-0 title">{category}</h2></span>
               	</div>
         [xfgiven_poster_one]<img src="[xfvalue_image_url_poster_one]" class="xfieldimage poster_one mb-3" alt="{title}">[/xfgiven_poster_one]
         [xfnotgiven_poster_one]<img src="/templates/nabster/dleimages/no_image.jpg" class="xfieldimage poster_one mb-3" alt="{title}">[/xfnotgiven_poster_one]
@@ -101,7 +130,6 @@
               <span class="iconify mb-1 mr-1 text-warning" data-icon="simple-line-icons:info" data-inline="false"></span>Новость отредактировал: <b>{editor}</b> - {edit-date}
               [edit-reason]
                 <div class="collapse px-4 py-2" id="editnews">
-                <br>
 				Причина: <i>{edit-reason}</i>
               </div>
               [/edit-reason]  
@@ -116,10 +144,10 @@
     <div class="card-footer">
 
         <ul class="list-inline m-0 text-muted f90">
-            <li class="list-inline-item auth d-none d-sm-inline" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
-            <li class="list-inline-item isize"><i class="icon-clock" aria-hidden="true"></i> {date=d.m.Y}</li>
+			<li class="list-inline-item auth" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
             <li class="list-inline-item isize"><i class="icon-book-open" aria-hidden="true"></i> {views}</li>
             <li class="list-inline-item isize"><i class="icon-bubbles" aria-hidden="true"></i> {comments-num}</li>
+            <li class="list-inline-item isize d-none d-sm-inline"><i class="icon-clock" aria-hidden="true"></i> {date=d.m.Y}</li>
             <li class="list-inline-item float-right">
                 [rating] [rating-type-2]
                 <a href="#" onclick="doRate('plus', '{news-id}'); return false;">
