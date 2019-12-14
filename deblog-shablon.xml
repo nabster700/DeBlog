@@ -3,8 +3,8 @@
 	<name>Deblog (Шаблон)</name>
 	<description></description>
 	<icon></icon>
-	<version>1.1</version>
-	<dleversion>13.1</dleversion>
+	<version>1.2</version>
+	<dleversion>13.0</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl></upgradeurl>
 	<filedelete>0</filedelete>
@@ -24,10 +24,10 @@
 	<file name="engine/modules/show.full.php">
 		<operation action="before">
 			<searchcode><![CDATA[$tpl->compile( 'content' );]]></searchcode>
-			<replacecode><![CDATA[$sql_poster = $db->query( "SELECT images, news_id FROM " . PREFIX . "_images where news_id = '{$row['id']}' LIMIT 2" );
-$poster = $db->get_row($sql_poster);
-if ($poster['images'] != "") {
-$scrsList = explode('|||',$poster['images']);
+			<replacecode><![CDATA[$sql_gallery = $db->query( "SELECT images, news_id FROM " . PREFIX . "_images where news_id = '{$row['id']}' LIMIT 2" );
+$gallery = $db->get_row($sql_gallery);
+if ($gallery['images'] != "") {
+$scrsList = explode('|||',$gallery['images']);
         $scrs = '';
         $cntscrs = 90;
         $ai = 0;
@@ -35,14 +35,14 @@ $scrsList = explode('|||',$poster['images']);
         {
             $ai++;
             $scr = trim($scr);
-            $poster_temp = explode("/",$scr);
-            $poster_name = $poster_temp[1];
-            $poster_data = substr($scr,0,8);
+            $gallery_temp = explode("/",$scr);
+            $gallery_name = $gallery_temp[1];
+            $gallery_data = substr($scr,0,8);
             if ($ai<=$cntscrs) {
             $scrs .= '
 						<div class="item">
-							<a href="'. $config ['http_home_url'] . 'uploads/posts/'.$poster_data.''.$poster_name.'">
-								<img src="'. $config ['http_home_url'] . 'uploads/posts/'.$poster_data.$poster_name.'">
+							<a href="'. $config ['http_home_url'] . 'uploads/posts/'.$gallery_data.''.$gallery_name.'">
+								<img src="'. $config ['http_home_url'] . 'uploads/posts/'.$gallery_data.$gallery_name.'">
 							</a>
 						</div>
 						'; } else {
@@ -50,10 +50,10 @@ $scrsList = explode('|||',$poster['images']);
             }
 }
         unset($scrsList);
-        if (!empty($poster['images'])) {
+        if (!empty($gallery['images'])) {
             $scrall= $scrs;}
-$tpl->set ( '{poster}', $scrall);
-} else $tpl->set ( '{poster}', "" );]]></replacecode>
+$tpl->set ( '{gallery}', $scrall);
+} else $tpl->set ( '{gallery}', "" );]]></replacecode>
 		</operation>
 		<operation action="after">
 			<searchcode><![CDATA[$tpl->set( '{login}', $row['autor'] );]]></searchcode>
@@ -208,12 +208,6 @@ else $tpl->set( '{foto}', "{THEME}/dleimages/noavatar.png" );]]></replacecode>
 		<operation action="after">
 			<searchcode><![CDATA[elseif ($do == 'pm') $nam_e = $lang['title_pm'];]]></searchcode>
 			<replacecode><![CDATA[elseif ($do == 'users') $nam_e = "Список пользователей";]]></replacecode>
-		</operation>
-		<operation action="after">
-			<searchcode><![CDATA[switch ( $do ) {]]></searchcode>
-			<replacecode><![CDATA[case "login" : 
-include (DLEPlugins::Check(ENGINE_DIR . '/modules/login.php'));
-break;]]></replacecode>
 		</operation>
 	</file>
 	<file name="engine/modules/mainstats.php">
@@ -1191,207 +1185,6 @@ $tpl->clear();
 			<replacecode><![CDATA[$sort = "<form name=\"news_set_sort\" id=\"news_set_sort\" method=\"post\"><ul class=\"sort p-0\">" . implode( $sort ) . "</ul>";]]></replacecode>
 		</operation>
 	</file>
-	<file name="engine/modules/login.php">
-		<operation action="create">
-			<replacecode><![CDATA[<?php
-if (!defined('DATALIFEENGINE'))
-{
-    die("Hacking attempt!");
-}
-
-if ($config['allow_social'] and $config['allow_registration'] and !$is_logged)
-{
-
-    include_once (ENGINE_DIR . '/data/socialconfig.php');
-
-    if (!$_SESSION['state']) $_SESSION['state'] = md5(uniqid(rand() , true));
-
-    if ($social_config['vk'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['vkid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=vk",
-            'scope' => 'offline,wall,email',
-            'state' => $_SESSION['state'],
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[vk]', "");
-        $tpl->set('[/vk]', "");
-        $tpl->set('{vk_url}', 'http://oauth.vk.com/authorize' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[vk\\](.*?)\\[/vk\\]'si", "");
-        $tpl->set('{vk_url}', '');
-    }
-
-    if ($social_config['od'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['odid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=od",
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[odnoklassniki]', "");
-        $tpl->set('[/odnoklassniki]', "");
-        $tpl->set('{odnoklassniki_url}', 'http://www.odnoklassniki.ru/oauth/authorize' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[odnoklassniki\\](.*?)\\[/odnoklassniki\\]'si", "");
-        $tpl->set('{odnoklassniki_url}', '');
-    }
-
-    if ($social_config['fc'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['fcid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=fc",
-            'scope' => 'public_profile, email',
-            'display' => 'popup',
-            'state' => $_SESSION['state'],
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[facebook]', "");
-        $tpl->set('[/facebook]', "");
-        $tpl->set('{facebook_url}', 'https://www.facebook.com/dialog/oauth' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[facebook\\](.*?)\\[/facebook\\]'si", "");
-        $tpl->set('{facebook_url}', '');
-    }
-
-    if ($social_config['google'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['googleid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=google",
-            'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
-            'state' => $_SESSION['state'],
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[google]', "");
-        $tpl->set('[/google]', "");
-        $tpl->set('{google_url}', 'https://accounts.google.com/o/oauth2/auth' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[google\\](.*?)\\[/google\\]'si", "");
-        $tpl->set('{google_url}', '');
-    }
-
-    if ($social_config['mailru'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['mailruid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=mailru",
-            'state' => $_SESSION['state'],
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[mailru]', "");
-        $tpl->set('[/mailru]', "");
-        $tpl->set('{mailru_url}', 'https://connect.mail.ru/oauth/authorize' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[mailru\\](.*?)\\[/mailru\\]'si", "");
-        $tpl->set('{mailru_url}', '');
-    }
-
-    if ($social_config['yandex'])
-    {
-
-        $social_params = array(
-            'client_id' => $social_config['yandexid'],
-            'redirect_uri' => $config['http_home_url'] . "index.php?do=auth-social&provider=yandex",
-            'state' => $_SESSION['state'],
-            'response_type' => 'code'
-        );
-
-        $tpl->set('[yandex]', "");
-        $tpl->set('[/yandex]', "");
-        $tpl->set('{yandex_url}', 'https://oauth.yandex.ru/authorize' . '?' . http_build_query($social_params));
-
-    }
-    else
-    {
-
-        $tpl->set_block("'\\[yandex\\](.*?)\\[/yandex\\]'si", "");
-        $tpl->set('{yandex_url}', '');
-    }
-
-}
-else
-{
-
-    $_SESSION['state'] = false;
-
-    $tpl->set_block("'\\[vk\\](.*?)\\[/vk\\]'si", "");
-    $tpl->set('{vk_url}', '');
-    $tpl->set_block("'\\[odnoklassniki\\](.*?)\\[/odnoklassniki\\]'si", "");
-    $tpl->set('{odnoklassniki_url}', '');
-    $tpl->set_block("'\\[facebook\\](.*?)\\[/facebook\\]'si", "");
-    $tpl->set('{facebook_url}', '');
-    $tpl->set_block("'\\[google\\](.*?)\\[/google\\]'si", "");
-    $tpl->set('{google_url}', '');
-    $tpl->set_block("'\\[mailru\\](.*?)\\[/mailru\\]'si", "");
-    $tpl->set('{mailru_url}', '');
-    $tpl->set_block("'\\[yandex\\](.*?)\\[/yandex\\]'si", "");
-    $tpl->set('{yandex_url}', '');
-}
-
-if ($is_logged)
-{
-
-    $tpl->load_template('login_ok.tpl');
-
-    $name = $member_id['name'];
-    $tpl->set('{name}', $name);
-
-    $tpl->compile('content');
-    $tpl->clear();
-
-}
-else
-{
-
-    $tpl->load_template('login_page.tpl');
-
-    $tpl->set('{registration-link}', $PHP_SELF . "?do=register");
-    $tpl->set('{lostpassword-link}', $PHP_SELF . "?do=lostpassword");
-    $tpl->set('{login-method}', $config['auth_metod'] ? "E-Mail:" : $lang['login_metod']);
-    $tpl->copy_template = "<form  method=\"post\" action=\"\">\n" . $tpl->copy_template . "
-<input name=\"login\" type=\"hidden\" id=\"login\" value=\"submit\">
-</form>";
-    $tpl->compile('content');
-    $tpl->clear();
-
-}
-
-?>]]></replacecode>
-		</operation>
-	</file>
 	<file name="engine/modules/pm.php">
 		<operation action="replace">
 			<searchcode><![CDATA[$tpl->set( '[inbox]', "<a href=\"$PHP_SELF?do=pm&amp;folder=inbox\">" );
@@ -1517,6 +1310,180 @@ $tpl->set( '[/new_pm]', "</a>" );]]></replacecode>
 		<operation action="replace">
 			<searchcode><![CDATA[$timezoneselect = "<select class=\"timezoneselect\" name=\"timezone\"><option value=\"\">{$lang['system_default']} {$langtimezones[$config['date_adjust']]}</option>\r\n";]]></searchcode>
 			<replacecode><![CDATA[$timezoneselect = "<select class=\"form-control w-100\" name=\"timezone\"><option value=\"\">{$lang['system_default']} {$langtimezones[$config['date_adjust']]}</option>\r\n";]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/modules/attachments.php">
+		<operation action="create">
+			<replacecode><![CDATA[<?php
+/*
+=====================================================
+Conclusion attachments DLE v5.0
+-----------------------------------------------------
+Автор: s@d@n
+E-mail: sadan.abiy@gmail.com
+-----------------------------------------------------
+Copyright (c) 2014 s@d@n
+-----------------------------------------------------
+Адаптация: DLE 13.x SX2 (http://sx2.name/)
+=====================================================
+Данный код защищен авторскими правами
+=====================================================
+Файл: attachments.php
+-----------------------------------------------------
+Назначение: Вывод прикреплённых файлов в новости
+=====================================================
+*/
+
+if (!defined('DATALIFEENGINE')) {
+    header("HTTP/1.1 403 Forbidden");
+    header('Location: ../../');
+    die("Hacking attempt!");
+}
+
+$cfg = array(
+    'newsId' => !empty($news_id) ? (int) $news_id : FALSE,
+    'template' => !empty($template) ? $template : 'attachments'
+);
+
+$attachments = FALSE;
+
+$attachments = dle_cache("news_attach" . $news_id, $config['skin'], true);
+
+$error = TRUE;
+
+if ($cfg['newsId']) {
+    
+    if (file_exists(TEMPLATE_DIR . '/' . $cfg['template'] . '.tpl')) {
+        
+        if (!isset($tpl)) {
+            $tpl      = new dle_template();
+            $tpl->dir = TEMPLATE_DIR;
+        } else {
+            $tpl->result['attachments'] = '';
+        }
+        
+        $tpl->load_template($cfg['template'] . '.tpl');
+        
+        $sql = $db->query("SELECT * FROM " . PREFIX . "_files WHERE news_id =  '" . $cfg['newsId'] . "'");
+        
+        while ($row = $db->get_row($sql)) {
+            
+            $error = FALSE;
+            
+            $image      = pathinfo(ROOT_DIR . '/uploads/files/' . $row['onserver']);
+            $fi         = $image['extension'];
+            $file_image = "{$fi}.png";
+            $get        = $config['http_home_url'] . "uploads/files/" . $row['onserver'];
+            
+            if (stripos($tpl->copy_template, "{file_size}") !== FALSE) {
+                
+                if ($row['size'])
+                    $tpl->set('{file_size}', formatsize($row['size']));
+                else
+                    $tpl->set('{file_size}', formatsize(@filesize(ROOT_DIR . '/uploads/files/' . $row['onserver'])));
+                
+            }
+            
+            if (stripos($tpl->copy_template, "{file_md5}") !== FALSE) {
+                if ($row['checksum'])
+                    $tpl->set('{file_md5}', $row['checksum']);
+                else
+                    $tpl->set('{file_md5}', @md5_file(ROOT_DIR . '/uploads/files/' . $row['onserver']));
+            }
+            
+            if ($config['allow_alt_url']) {
+                
+                $go_name   = "onclick=\"ShowProfile('" . urlencode($row['author']) . "', '" . htmlspecialchars($config['http_home_url'] . "user/" . urlencode($row['author']) . "/", ENT_QUOTES, $config['charset']) . "', '" . $user_group[$member_id['user_group']]['admin_editusers'] . "'); return FALSE;\"";
+                $user_link = "<a {$go_name} href=\"" . $config['http_home_url'] . "user/" . urlencode($row['author']) . "/\">";
+                
+            } else {
+                
+                $go_name   = "onclick=\"ShowProfile('" . urlencode($row['author']) . "', '" . htmlspecialchars("$PHP_SELF?subaction=userinfo&amp;user=" . urlencode($row['author']), ENT_QUOTES, $config['charset']) . "', '" . $user_group[$member_id['user_group']]['admin_editusers'] . "'); return FALSE;\"";
+                $user_link = "<a {$go_name} href=\"$PHP_SELF?subaction=userinfo&amp;user=" . urlencode($row['author']) . "\">";
+                
+            }
+            
+            $tpl->set('[file_profile]', $user_link);
+            $tpl->set('{file_author}', stripslashes($row['author']));
+            $tpl->set('[/file_profile]', "</a>");                       
+            $tpl->set('{file_id}', $row['id']);
+            $tpl->set('{file_name}', $row['name']);
+            $tpl->set('{file_format}', $fi);
+            $tpl->set('{file_image}', $file_image);
+            
+            if (date('Ymd', $row['date']) == date('Ymd', $_TIME)) {
+                
+                $tpl->set('{file_date}', $lang['time_heute'] . langdate(", H:i", $row['date']));
+                
+            } elseif (date('Ymd', $row['date']) == date('Ymd', ($_TIME - 86400))) {
+                
+                $tpl->set('{file_date}', $lang['time_gestern'] . langdate(", H:i", $row['date']));
+                
+            } else {
+                
+                $tpl->set('{file_date}', langdate($config['timestamp_active'], $row['date']));
+                
+            }
+            $tpl->copy_template = preg_replace_callback("#\{file_date=(.+?)\}#i", "formdate", $tpl->copy_template);
+            
+            $tpl->set('{file_link}', $config['http_home_url'] . "index.php?do=download&id=" . $row['id'] . $area);
+            $tpl->set('{file_url}', $get);
+            
+            if ($user_group[$member_id['user_group']]['allow_files']) {
+                $tpl->set('[attachments]', "");
+                $tpl->set('[/attachments]', "");
+                $tpl->set_block("'\\[not-attachments\\](.*?)\\[/not-attachments\\]'si", "");
+            } else {
+                $tpl->set('[not-attachments]', "");
+                $tpl->set('[/not-attachments]', "");
+                $tpl->set_block("'\\[attachments\\](.*?)\\[/attachments\\]'si", "");
+            }
+            
+            if ($config['files_count']) {
+                $tpl->set('{file_dcount}', $row['dcount']);
+                $tpl->set('[count]', "");
+                $tpl->set('[/count]', "");
+                $tpl->set_block("'\\[not-count\\](.*?)\\[/not-count\\]'si", "");
+            } else {
+                $tpl->set('{file_dcount}', "");
+                $tpl->set('[not-count]', "");
+                $tpl->set('[/not-count]', "");
+                $tpl->set_block("'\\[count\\](.*?)\\[/count\\]'si", "");
+            }
+            
+            $tpl->set('[file]', "");
+            $tpl->set('[/file]', "");
+            $tpl->set_block("'\\[not-file\\](.*?)\\[/not-file\\]'si", "");
+            
+            $tpl->compile('attachments');
+            $attachments = $tpl->result['attachments'];
+            
+        }
+        
+        if ($error == TRUE) {
+            $tpl->set_block("'\\[file\\](.*?)\\[/file\\]'si", "");
+            $tpl->set('[not-file]', "");
+            $tpl->set('[/not-file]', "");
+            $tpl->compile('attachments');
+            $attachments = $tpl->result['attachments'];
+        }
+        
+        create_cache("news_attach" . $news_id, $attachments, $config['skin'], true);
+        
+        $tpl->clear();
+        $db->free();
+        
+    } else {
+        
+        $attachments = 'Отсутствует файл шаблона: ' . $config['skin'] . '/' . $cfg['template'] . '.tpl';
+        
+    }
+    
+    echo $attachments;
+    
+}
+
+?>]]></replacecode>
 		</operation>
 	</file>
 </dleplugin>

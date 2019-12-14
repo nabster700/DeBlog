@@ -26,13 +26,14 @@
                         [xfinput_poster_one]
                     </div>
                 </li>
-
+[group=1,2,3]
                 <li>
                     <div class="form-group">
                         <label for="xf_imgs">Загрузите несколько фотографий</label>
                         [xfinput_gallery]
                     </div>
                 </li>
+[/group]
                 <li>
                     <div class="form-group">
                         <label for="xf_imgs">Закрепить в информационный блок</label>

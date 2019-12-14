@@ -1523,3 +1523,19 @@ a.active1 {
     padding: 10px 30px;
     font-size: 90%
 }
+
+body::-webkit-scrollbar {
+    width: 1.4em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(148, 148, 148, 0.22); /*цвет*/
+    background:none; /*фон у вас не будет фоновой цвета потому что он на none изменяем его на любой цветом*/
+        opacity:.7;
+}
+ 
+body::-webkit-scrollbar-thumb {	
+  background: rgba(134, 132, 132, 0.22); 
+ -webkit-box-shadow: inset 0px 0px 1px rgb(148, 148, 148, 0.22);
+  cursor: pointer;
+}

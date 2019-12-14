@@ -9,9 +9,10 @@
                 <p class="text-muted m-0">{login}</p>
             </div>
         </div>
+[group=1,2,3]
         <hr>
         <center class="mb-3 mt-4"><a href="/addnews.html" class="gradient-button px-3 py-2">+ Добавить</a></center>
-
+[/group]
     </div>
     <div class="list-group list-group-flush">
         [admin-link]<a target="_blink" href="{admin-link}" class="list-group-item list-group-item-action"><i class="icon-ghost mr-2"></i>Админка</a>[/admin-link]
@@ -26,26 +27,6 @@
 
 <div class="card my-4">
     <div class="card-body">
-
-        <script>
-            jQuery(document).ready(function($) {
-                $('.popup-content32').magnificPopup({
-                    type: 'inline'
-                });
-            });
-        </script>
-
-        <div id="text-popup32" class="white-popup mfp-hide">
-            <div class="text-center mt-3">Для публикации, вам необходимо пройти <a href="/index.php?do=register" class="btn btn-outline-primary mt-3"><i class="fa fa-check mr-2" aria-hidden="true"></i>регистрацию</a>
-                <hr>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    [vk]<a href="{vk_url}" class="btn btn-light"><i class="fa fa-vk" aria-hidden="true" style="color:#4a76a8;"></i></a>[/vk] [google]
-                    <a href="{google_url}" class="btn btn-light"><i class="fa fa-google" aria-hidden="true" style="color:#4a76a8;"></i></a>[/google]
-                </div>
-            </div>
-        </div>
-
-        <center class="mb-3 mt-4"><a href="#text-popup32" class="popup-content32 gradient-button px-3 py-2">+ Добавить</a></center>
 
         <form class=" py-3" role="form" method="post" action="">
             <div class="form-group">

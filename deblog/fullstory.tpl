@@ -115,12 +115,18 @@
                     <div class="col-md-12">
                         <div class="main-content" id="ggwp">
                             <div class="owl-carousel owl-theme xfieldimagegallery skrinshoty" id="gallery">
-                                {poster}
+                                {gallery}
                             </div>
                         </div>
                     </div>
                 </div>
                 [/xfgiven_gallery]
+				<div class="card-footer px-0 mt-3" id="files">
+                    <h5 class="card-title">Файлы</h5>
+					<div class="row">
+                        {include file="engine/modules/attachments.php?news_id={news-id}"}
+					</div>
+				</div>
          [edit-date]
             <hr>
 			<div class="card mt-2">
@@ -168,15 +174,6 @@
     {related-news}
 </div>
 [/related-news]
-<div class="alert alert-secondary mb-4" role="alert" style="font-size: 90%;">
-    <div class="media">
-        <i class="align-self-center icon-shield mr-4 text-primary" style="font-size: 20px;"></i>
-        <div class="media-body text-muted">
-            Пока в разработке
-        </div>
-    </div>
-</div>
-
 <div class="card w-100">
     <div class="card-body">
         [not-comments]
