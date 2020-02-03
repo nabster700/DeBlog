@@ -1,4 +1,5 @@
-<div class="card mb-3">
+<div class="col-md-12">
+    <div class="card mb-3">
     <div class="card-body">
         <h5 class="card-title mb-4">Обратная связь</h5> [not-logged]
         <div class="row mb-3">
@@ -37,4 +38,5 @@
         [/sec_code]
         <button class="btn btn-primary" type="submit" name="send_btn">Отправить</button>
     </div>
+</div>
 </div>

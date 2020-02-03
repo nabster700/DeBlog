@@ -135,6 +135,10 @@ else $tpl->set( '{foto}', "{THEME}/dleimages/noavatar.png" );]]></replacecode>
 			<searchcode><![CDATA[echo $tpl->result['main'];]]></searchcode>
 			<replacecode><![CDATA[$tpl->result['main'] = str_replace("%username_login%", $is_logged?$member_id['name']:'Гость', $tpl->result['main']);]]></replacecode>
 		</operation>
+		<operation action="replace">
+			<searchcode><![CDATA[$tpl->set ( '{content}', "<div id='dle-content'>" . $tpl->result['content'] . "</div>" );]]></searchcode>
+			<replacecode><![CDATA[$tpl->set ( '{content}', "<div id='dle-content' class='row row-flex row-flex-wrap my'>" . $tpl->result['content'] . "</div>" );]]></replacecode>
+		</operation>
 	</file>
 	<file name="engine/modules/show.short.php">
 		<operation action="after">
@@ -1012,7 +1016,7 @@ $db->free($sql_result);
 
 $number = $searchcount;
 
-$tpl->result['content'] = $main_tpl . "<div class=\"row\">" . $tpl->result['content'] . "</div>";
+$tpl->result['content'] = $main_tpl . "" . $tpl->result['content'] . "";
 $tpl->load_template('navigation.tpl');
 
 if ($cstart > 1)
@@ -1484,6 +1488,12 @@ if ($cfg['newsId']) {
 }
 
 ?>]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/init.php">
+		<operation action="after">
+			<searchcode><![CDATA[$tpl->set( '{login}', $member_id['name'] );]]></searchcode>
+			<replacecode><![CDATA[$tpl->set( '{userid}', $member_id['user_id'] );]]></replacecode>
 		</operation>
 	</file>
 </dleplugin>

@@ -19,8 +19,7 @@
         <a href="{profile-link}" class="list-group-item list-group-item-action"><i class="icon-user mr-2"></i>Мой профиль</a>
         <a href="{favorites-link}" class="list-group-item list-group-item-action"><i class="icon-star mr-2"></i>Мои закладки</a>
         <a href="{pm-link}" class="list-group-item list-group-item-action"><i class="icon-speech mr-2"></i>Мои сообщения</a>
-        <!-- <a href="/index.php?do=lastcomments&userid={userid}" class="list-group-item list-group-item-action"><i class="icon-bubbles mr-2"></i>Мои комментарии</a> -->
-        <a href="{logout-link}" class="list-group-item list-group-item-action text-muted"><i class="icon-close mr-2"></i>Выйти</a>
+<a href="/index.php?do=lastcomments&userid={userid}" class="list-group-item list-group-item-action"><i class="icon-bubbles mr-2"></i>Мои комментарии</a>        <a href="{logout-link}" class="list-group-item list-group-item-action text-muted"><i class="icon-close mr-2"></i>Выйти</a>
     </div>
 </div>
 [/not-group] [group=5]

@@ -1,4 +1,5 @@
-<div class="card">
+<div class="col-md-12">
+   <div class="card">
     <div class="card-body">
 
         [registration]
@@ -84,4 +85,5 @@
         <br>
 
     </div>
+</div>
 </div>

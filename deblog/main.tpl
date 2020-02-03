@@ -44,7 +44,7 @@
     {include file="modules/menu.tpl"}
     <div class="container ">
         <div class="row">
-            <div class="col-lg-9 col-md-12 col-sm-12 my-4">
+            <div class="col-lg-9 col-md-12 col-sm-12 my-4[not-smartphone] pr-2[/not-smartphone]">
                 [aviable=cat]
                 <div class="card mb-4">
                     <a class="card-link" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
@@ -118,7 +118,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    © NABSTERS.RU 2018-2019. все права защищены.
+                    © NABSTERS.RU 2018-2020. все права защищены.
                 </div>
             </div>
         </div>

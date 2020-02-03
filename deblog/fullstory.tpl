@@ -46,7 +46,8 @@
         }
     });
 </script>
-<div class="card mb-4 w-100">
+<div class="col-md-12">
+   <div class="card mb-4 w-100">
     <div class="card-body">
 
         [not-group=5]
@@ -157,7 +158,7 @@
             <li class="list-inline-item float-right">
                 [rating] [rating-type-2]
                 <a href="#" onclick="doRate('plus', '{news-id}'); return false;">
- 					<button class="btn btn-sm btn-outline-info float-right" style="margin: 0px 3px 0 0;padding: 1px 6px 1px 6px;" data-placement="left" data-toggle="tooltip" title="Мне нравится">
+ 					<button class="btn btn-sm btn-outline-info float-right mr-0" style="margin: 0px 3px 0 0;padding: 1px 6px 1px 6px;" data-placement="left" data-toggle="tooltip" title="Мне нравится">
 						<span class="fa fa-thumbs-o-up"></span>
 						<span id="news-{news-id}" class="ignore-select">
 						<span class="ratingtypeplus ignore-select">
@@ -168,16 +169,16 @@
             </li>
         </ul>
     </div>
-</div>
+</div></div>
 [related-news]
-<div class="row">
     {related-news}
-</div>
 [/related-news]
+<div class="col-md-12">
 <div class="card w-100">
     <div class="card-body">
         [not-comments]
         <p class="text-muted"><i class="icon-close mr-2 text-danger"></i> Нет комментариев. </p>
         {comments} {navigation} [/not-comments] [comments] {comments} {navigation} [/comments] {addcomments}
     </div>
+</div>
 </div>

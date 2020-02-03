@@ -1,11 +1,8 @@
-[desktop]
 {login}
 <div class="list-group">
-  {catmenu}
+{catmenu}
 </div>
-[/desktop]
- {vote}
-
+{vote}
 <div class="card my-4">
   <div class="card">
   <div class="card-header">Статистика</div>

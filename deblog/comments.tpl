@@ -12,10 +12,10 @@
                 <button type="button" class="btn btn-sm btn-light" style="color: #999;padding: 1px 6px 1px 6px;margin: -1px 3px 0 0;" data-placement="left" data-toggle="tooltip" title="Ответить"><i class="fa fa-reply" aria-hidden="true"></i></button>
                 [/reply] [not-group=5]
                 <div class="dropdown float-right">
-                    <button class="btn btn-light btn-sm dropdown-toggle" style="color: #AAB2BD;padding: 1px 8px 1px 8px;margin: -1px 3px 0 0;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-light btn-sm dropdown-toggle" style="color: #AAB2BD;padding: 1px 8px 1px 8px;margin: -1px 3px 0 0;" type="button" id="dropdownMenu25" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu25">
                         [com-edit]
                         <button type="button" class="dropdown-item"><i class="fa fa-cogs" aria-hidden="true"></i> Изменить</button>
                         [/com-edit] [com-del]

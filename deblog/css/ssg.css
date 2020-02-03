@@ -1539,3 +1539,11 @@ body::-webkit-scrollbar-thumb {
  -webkit-box-shadow: inset 0px 0px 1px rgb(148, 148, 148, 0.22);
   cursor: pointer;
 }
+
+.wrap {
+    /* background: #999; */
+    display: inline-block;
+    /* height: 50%; */
+    /* margin: 1em; */
+    width: 50%;
+}

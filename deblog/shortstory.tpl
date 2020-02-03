@@ -1,8 +1,8 @@
-<div class="col-md-12 p-0">
+<div class="col-md-6">
 <div class="card mb-4">
   <div class="card-body p-3">
     <div class="row">
-        <div class="col-md-4 poster">
+        <div class="col-md-12 mb-1 poster">
             <a href="{full-link}">
               [ifxfvalue panel="Предупреждение"]
               <div role="status" style="position: absolute;margin: 10px;">
@@ -40,7 +40,7 @@
         [xfnotgiven_poster_one]<img src="/templates/nabster/dleimages/no_image.jpg" class="xfieldimage poster_one" alt="{title}">[/xfnotgiven_poster_one]
             </a>
        </div>
-        <div class="col-md-8 pl-md-0">
+        <div class="col-md-12">
 		[not-group=5]
             <div class="dropdown float-right">
                <button class="text-black-50 btn btn-sm btn-light dropdown-toggle pt-1" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
             [not-fixed]
             <h4 class="h5 gss"><a href="{full-link}" class="text-dark">[poll] <i class="icon-chart" aria-hidden="true"></i> [/poll]{title}</a></h4>
             [/not-fixed]
-            <div class="noimg" style="color: #868588;line-height: 1.4;font-size: 94%;">{short-story limit="300"}</div>
+            <div class="noimg" style="color: #868588;line-height: 1.4;font-size: 94%;">{short-story limit="100"}</div>
          [edit-date]
 			<div class="card mt-2">
             <a class="card-link alert alert-warning p-1" data-toggle="collapse" href="#editnews" role="button" aria-expanded="false" aria-controls="editnews">
@@ -93,11 +93,10 @@
 		<li class="list-inline-item auth" [online] id="online" [/online]> <i class="icon-user" aria-hidden="true"></i> {author}</li>
         <li class="list-inline-item"><i class="icon-book-open" aria-hidden="true"></i> {views}</li>
         <li class="list-inline-item"><i class="icon-bubbles" aria-hidden="true"></i> {comments-num}</li>
-        <li class="list-inline-item d-none d-sm-inline"><i class="icon-clock" aria-hidden="true"></i> {date=d.m.Y}</li>
           <li class="list-inline-item float-right">
                 [rating] [rating-type-2]
                 <a href="#" onclick="doRate('plus', '{news-id}'); return false;">
- 					<button class="btn btn-sm btn-outline-info float-right" style="margin: 0px 3px 0 0;padding: 1px 6px 1px 6px;" data-placement="left" data-toggle="tooltip" title="Мне нравится">
+ 					<button class="btn btn-sm btn-outline-info float-right mr-0" style="margin: 0px 3px 0 0;padding: 1px 6px 1px 6px;" data-placement="left" data-toggle="tooltip" title="Мне нравится">
 						<span class="fa fa-thumbs-o-up"></span>
 						<span id="news-{news-id}" class="ignore-select">
 						<span class="ratingtypeplus ignore-select">

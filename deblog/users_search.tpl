@@ -1,4 +1,5 @@
-<div class="card mb-3 w-100" >
+<div class="col-md-12">
+    <div class="card mb-3 w-100" >
    <div class="card-body">
       <form method="get" action='' class="w-100">
          <div class="row">
@@ -37,3 +38,4 @@
       </ul>
    </div>
 </div>
+ </div>

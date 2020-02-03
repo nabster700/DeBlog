@@ -1,5 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<div class="card mb-5">
+<div class="col-md-12">
+   <div class="card mb-4 w-100">
    <div class="card-header text-center f90">
       Гистограмма. Соотношение основных показателей активности
    </div>
@@ -12,7 +13,7 @@
    </div>
    [/group]
 </div>
-<div class="row row-flex row-flex-wrap my">
+    </div>
    <div class="col-md-6">
       <div class="card w-100 mb-5">
          <div class="card-header text-center f90">
@@ -55,7 +56,6 @@
          </div>
       </div>
    </div>
-</div>
 <script>
    new Chart(document.getElementById("bar-chart-grouped"), {
        type: 'bar',
