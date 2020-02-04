@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="card mb-2">
+    <div class="card mb-2 w-100">
     <div class="card-body p-2">
         <div class="row">
             <div class="col-md-3">
@@ -29,7 +29,7 @@
 </div>
 </div>
 <div class="col-md-12">
-<div class="card mb-2">
+<div class="card mb-2 w-100">
     <div class="card-body p-2">
         <div class="row">
             <div class="col-md-6">
@@ -44,7 +44,7 @@
 </div>
 </div>
 <div class="col-md-12">
-<div class="card mb-2">
+<div class="card mb-2 w-100">
     <div class="card-body p-2">
         <div class="row">
             <div class="col-md-6">
@@ -74,7 +74,7 @@
 </div>
 </div>
 <div class="col-md-12">
-<div class="card mb-2">
+<div class="card mb-2 w-100">
     <div class="card-body p-2">
         <table class="table table-hover mb-0 f90 text-muted">
             <tbody>
@@ -224,5 +224,6 @@
             </div>
         </div>
     </div>
-</div></div>
+</div>
 [/not-logged]
+</div>
