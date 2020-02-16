@@ -2,7 +2,7 @@
     $(document).ready(function() {
         $('.owl-carousel').owlCarousel({
             loop: false,
-            margin: 30,
+            margin: 8,
             autoplay: 3000,
             responsiveClass: true,
             dots: false,
@@ -110,17 +110,17 @@
                 <p>{full-story}[pages]
                     <br>{pages}[/pages] [poll]{poll}[/poll]</p>
                 [xfgiven_gallery]
-                <hr>
+                <div class="card-footer px-0 mt-3" id="files">
                 <h5 class="card-title">Галерея</h5>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 p-1">
                         <div class="main-content" id="ggwp">
                             <div class="owl-carousel owl-theme xfieldimagegallery skrinshoty" id="gallery">
                                 {gallery}
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> </div>
                 [/xfgiven_gallery]
 				<div class="card-footer px-0 mt-3" id="files">
                     <h5 class="card-title">Файлы</h5>
