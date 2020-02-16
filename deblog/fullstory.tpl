@@ -124,7 +124,7 @@
                 [/xfgiven_gallery]
 				<div class="card-footer px-0 mt-3">
                     <h5 class="card-title">Файлы</h5>
-					<div class="row">
+					<div class="row px-3">
                         {include file="engine/modules/attachments.php?news_id={news-id}"}
 					</div>
 				</div>
