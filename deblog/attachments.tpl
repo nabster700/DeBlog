@@ -1,6 +1,6 @@
 [file]
 [attachments]
-<div class="col-md-4">
+<div class="col-md-4 p-1">
 <div class="card border border-light" style="height: 100%; width: 100%;">
 	<div class="card-body px-4" style="padding: 15px;font-size: 90%;">
    [count]Скачали: <b>{file_dcount}</b><br />[/count]
