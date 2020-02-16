@@ -110,7 +110,7 @@
                 <p>{full-story}[pages]
                     <br>{pages}[/pages] [poll]{poll}[/poll]</p>
                 [xfgiven_gallery]
-                <div class="card-footer px-0 mt-3" id="files">
+                <div class="card-footer px-0 mt-3">
                 <h5 class="card-title">Галерея</h5>
                 <div class="row">
                     <div class="col-md-12 p-1">
@@ -122,7 +122,7 @@
                     </div>
                 </div> </div>
                 [/xfgiven_gallery]
-				<div class="card-footer px-0 mt-3">
+				<div class="card-footer px-0 mt-3" id="files">
                     <h5 class="card-title">Файлы</h5>
 					<div class="row px-3">
                         {include file="engine/modules/attachments.php?news_id={news-id}"}
