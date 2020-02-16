@@ -5,7 +5,7 @@
         <div class="col-md-12 mb-1 poster">
             <a href="{full-link}">
               <div role="status" style="position: absolute;margin: 10px;">
-                <span class="badge badge-warning">{title limit="33"}</span>
+                <span class="badge badge-warning">{title limit="25"}..</span>
               </div>
 				<div role="status" style="position: absolute;margin: 125px 0px 0px 10px;">
                 	<span class="badge badge-light"><p class="mb-0">{category}</p></span>
