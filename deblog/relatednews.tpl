@@ -10,7 +10,7 @@
       		</div>
       		<div class="col-md-8 pl-md-0">
       			<h6><a href="{link}" class="text-dark">{title limit="35"}</a></h6>
-                <small>{text limit="120"}</small>
+                <small style="display: table-footer-group;">{text limit="120"}</small>
       		</div>
       	</div>
     </div>
