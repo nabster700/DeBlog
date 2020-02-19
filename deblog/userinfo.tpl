@@ -2,7 +2,7 @@
     <div class="card mb-2 w-100">
     <div class="card-body p-2">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="#">
                     <div role="status" style="position: absolute;margin: 10px;">
                         [online]<span class="badge badge badge-success">Онлайн</span>[/online] [offline]
@@ -11,15 +11,15 @@
                     <img src="{foto}{uniqid}" alt="{Usertitle}" class="rounded w-100">
                 </a>
             </div>
-            <div class="col-md-9 pl-md-0">
+            <div class="col-md-10 pl-md-0">
                 [not-logged]
                 <div class="float-right ml-3 mt-1"><a href="#" data-toggle="modal" data-target="#setting"><i class="icon-settings mr-2"></i></a></div>[/not-logged]
-                <h5 class="card-title mt-1"><span class="text-muted mr-2">Логин:</span>{Usertitle}</h5>
-                <p class="text-primary">@{fullname}[not-fullname]Без имени[/not-fullname]</p>
+                <h5 class="card-title mt-1 mb-2"><span class="text-muted mr-2">Логин:</span>{Usertitle}</h5>
+                <p class="text-primary mb-2">@{fullname}[not-fullname]Без имени[/not-fullname]</p>
                 [info]
                 <div class="arrow_box f90 p-1" style="color: #898b96;">{info}</div>
                 [/info] [signature]
-                <div class="card-body pt-3 pl-0 pr-0 pb-0">
+                <div class="card-body pt-1 pl-0 pr-0 pb-0">
                     <span class="text-muted mr-1"><i class="icon-pencil mr-1"></i>Моя подпись:</span> {signature}
                 </div>
                 [/signature]

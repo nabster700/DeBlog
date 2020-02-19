@@ -118,7 +118,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    © NABSTERS.RU 2018-2020. все права защищены.
+                    © NABSTER.INFO 2018-2020. все права защищены.
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 	<name>Deblog (Шаблон)</name>
 	<description></description>
 	<icon></icon>
-	<version>1.2</version>
+	<version>1.5</version>
 	<dleversion>13.0</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl></upgradeurl>
@@ -1494,6 +1494,38 @@ if ($cfg['newsId']) {
 		<operation action="after">
 			<searchcode><![CDATA[$tpl->set( '{login}', $member_id['name'] );]]></searchcode>
 			<replacecode><![CDATA[$tpl->set( '{userid}', $member_id['user_id'] );]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/modules/vote.php">
+		<operation action="replace">
+			<searchcode><![CDATA[<div class=\"voteprogress\"><span class=\"vote{$pn}\" style=\"width:".intval($proc)."%;\">{$proc}%</span></div>\n";]]></searchcode>
+			<replacecode><![CDATA[<div class=\"progress mb-2 progress-bar progress-bar-striped progress-bar-animated vote{$pn}\" role=\"progressbar\" aria-valuenow=\"45\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:".intval($proc)."%;\"><span class=\"masha_index masha_index19\" rel=\"19\"></span>{$proc}%</div>\n";]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/ajax/vote.php">
+		<operation action="replace">
+			<searchcode><![CDATA[<div class=\"voteprogress\"><span class=\"vote{$pn}\" style=\"width:".intval($proc)."%;\">{$proc}%</span></div>\n";]]></searchcode>
+			<replacecode><![CDATA[<div class=\"progress mb-2 progress-bar progress-bar-striped progress-bar-animated vote{$pn}\" role=\"progressbar\" aria-valuenow=\"45\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:".intval($proc)."%;\"><span class=\"masha_index masha_index19\" rel=\"19\"></span>{$proc}%</div>\n";]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/ajax/allvotes.php">
+		<operation action="replace">
+			<searchcode><![CDATA[<div class=\"voteprogress\"><span class=\"vote{$pn}\" style=\"width:".intval($proc)."%;\">{$proc}%</span></div>]]></searchcode>
+			<replacecode><![CDATA[<div class=\"progress mb-2 progress-bar progress-bar-striped progress-bar-animated vote{$pn}\" role=\"progressbar\" aria-valuenow=\"45\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:".intval($proc)."%;\"><span class=\"masha_index masha_index19\" rel=\"19\"></span>{$proc}%</div>]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/inc/editvote.php">
+		<operation action="replace">
+			<searchcode><![CDATA[<div class=\"voteprogress\" align=\"left\"><span class=\"vote{$pn}\" style=\"width:".intval($proc)."%;\">{$proc}%</span></div>\n";]]></searchcode>
+			<replacecode><![CDATA[<div class=\"progress mb-2 progress-bar progress-bar-striped progress-bar-animated vote{$pn}\" role=\"progressbar\" aria-valuenow=\"45\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:".intval($proc)."%;\"><span class=\"masha_index masha_index19\" rel=\"19\"></span>{$proc}%</div>\n";]]></replacecode>
+		</operation>
+	</file>
+	<file name="engine/ajax/poll.php">
+		<operation action="replace">
+			<searchcode><![CDATA[<div class="pollprogress"><span class="poll{$pn}" style="width:{$intproc}%;">{$proc}%</span></div>]]></searchcode>
+			<replacecode><![CDATA[<div class="progress poll{$pn} mb-3" style="height: 20px;">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{$proc}" aria-valuemin="0" aria-valuemax="100" style="width: {$intproc}%">{$proc}%</div>
+</div>]]></replacecode>
 		</operation>
 	</file>
 </dleplugin>

@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="card mb-3">
     <div class="err" role="alert">
 <div class="media m-0">
   <i class="icon-info mr-3 align-self-center h4 text-primary"></i>

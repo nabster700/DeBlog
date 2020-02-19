@@ -2,7 +2,7 @@
 	<div class="container">
     	<a class="navbar-brand text-uppercase" href="/">
         <span class="mr-2 iconify icon-width:40px icon-height:40px"style="color: #5f9cfe;" data-icon="fa-solid:chalkboard-teacher" data-inline="false"></span>
-        <span class="lgg">nabsters</span>.RU<span style="text-transform: capitalize;"></span>
+        <span class="lgg">nabster</span>.INFO<span style="text-transform: capitalize;"></span>
       </a>   
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
          <span class="iconify" data-icon="simple-line-icons:menu" data-inline="false"></span>

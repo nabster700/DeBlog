@@ -106,14 +106,14 @@
                 	<span class="badge badge-light"><h2 class="mb-0 title">{category}</h2></span>
               	</div>
         [xfgiven_poster_one]<img src="[xfvalue_image_url_poster_one]" class="xfieldimage poster_one mb-3" alt="{title}">[/xfgiven_poster_one]
-        [xfnotgiven_poster_one]<img src="/templates/nabster/dleimages/no_image.jpg" class="xfieldimage poster_one mb-3" alt="{title}">[/xfnotgiven_poster_one]
+        [xfnotgiven_poster_one]<img src="{THEME}/dleimages/no_image.jpg" class="xfieldimage poster_one mb-3" alt="{title}">[/xfnotgiven_poster_one]
                 <p>{full-story}[pages]
                     <br>{pages}[/pages] [poll]{poll}[/poll]</p>
                 [xfgiven_gallery]
                 <div class="card-footer px-0 mt-3">
                 <h5 class="card-title">Галерея</h5>
                 <div class="row">
-                    <div class="col-md-12 p-1">
+                    <div class="col-md-12">
                         <div class="main-content" id="ggwp">
                             <div class="owl-carousel owl-theme xfieldimagegallery skrinshoty" id="gallery">
                                 {gallery}
